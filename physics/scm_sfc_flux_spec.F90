@@ -197,6 +197,19 @@ module scm_sfc_flux_spec
     endif
     if (nint(slmsk(i)) /= 1) slmsk(i)  = islmsk(i)
   enddo
+  
+  do i = 1, im
+    if (wet(i)) then
+      tsfc_wat(i) = T_surf(i)
+    end if
+    if (dry(i)) then
+      tsfcl(i)  = T_surf(i)
+    end if
+    if (icy(i)) then
+      tisfc(i) = T_surf(i)
+      tisfc(i) = max(timin, min(tisfc(i), tgice))
+    end if
+  end do
 
   do i = 1, im
     if (wet(i)) then
