@@ -211,7 +211,7 @@ module scm_sfc_flux_spec
     end if
   end do
 
-! to prepare to separate lake from ocean under water category
+! to prepare to separate lake from ocean under water category 
   do i = 1, im
     if ((wet(i) .or. icy(i)) .and. lakefrac(i) > 0.0_kind_phys) then
       if (lkm == 1 .and. lakefrac(i) >= 0.15 .and. lakedepth(i) > 1.0_kind_phys) then
